@@ -138,7 +138,7 @@ public class BasicStepImplementation {
         }
     }
 
-    public void validateResponseBodyForInvalidAuth(DataTable expectedResponseTable) {
+    public void validateResponseBody(DataTable expectedResponseTable) {
         //Map<String,String> responseMap = response.asMap(String.class,String.class);
         Map<String, String> actualResponseMap = responseJayWay.getBody().as(Map.class);
         String actualResponseHeader1 = actualResponseMap.get("type");
@@ -173,6 +173,16 @@ public class BasicStepImplementation {
         if (!isBasicHeadersAdded) {
             Assert.fail("ERROR: All basic headers are not added.");
         }
+    }
+
+    public void validateResponseBodyForInvalidResource(DataTable expectedResponseTable) {
+        Map<String, String> actualResponseMap = responseJayWay.getBody().as(Map.class);
+        String actualResponseHeader1 = actualResponseMap.get("type");
+        String actualResponseHeader2 = actualResponseMap.get("message");
+        String expectedResponseHeader1 = expectedResponseTable.asMap(String.class, String.class).get("type");
+        String expectedResponseHeader2 = expectedResponseTable.asMap(String.class, String.class).get("message");
+        Assert.assertTrue(expectedResponseHeader1.equals(actualResponseHeader1) && expectedResponseHeader2.equals(actualResponseHeader2));
+
     }
 }
 

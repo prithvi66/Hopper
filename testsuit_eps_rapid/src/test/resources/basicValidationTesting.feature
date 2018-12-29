@@ -4,8 +4,8 @@ Feature: EAN API Version, Authorization, Invalid resource validations
   Background:
     Given simple init
     And Generate authHeaderKey with
-      |apikey||
-      |secret||
+      |apikey|mq7ijoev87orvkq4mqo8dr2tf|
+      |secret|587btntj2ihg5|
     And Basic web application endpoint url is "https://test.ean.com"
     And Basic version is "2.1"
     And Basic headers are
@@ -44,9 +44,9 @@ Feature: EAN API Version, Authorization, Invalid resource validations
     And performs GET request
     Then the response code should be 404
     And user should see json response with pairs
-      |type   | resource.not_found   |
-      |message    | The requested resource could not be found.  |
-            # getting 401.
+      |type   | resource_not_found   |
+      |message    | The resource requested was not found.  |
+
 
   Scenario: Invalid version
     Given Basic web application is running

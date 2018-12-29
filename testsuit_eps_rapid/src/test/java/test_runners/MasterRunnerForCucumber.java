@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/main/resources",
+        features = "src/test/resources",
         glue = "steps_definations.BasicStepDefination",
         dryRun = false,
         strict = false,

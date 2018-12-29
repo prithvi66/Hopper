@@ -90,7 +90,11 @@ public class BasicStepDefination {
     @And("^user should see json response with pairs$")
     public void user_should_see_json_response_with_pairs(DataTable expectedResponseTable) {
 
-        handle.validateResponseBodyForInvalidAuth(expectedResponseTable);
+        handle.validateResponseBody(expectedResponseTable);
+    }
+    @Then("^user should see json response for invalid resource$")
+    public void user_should_see_json_response_for_invalid_resource(DataTable expectedResponseTable)  {
+        handle.validateResponseBodyForInvalidResource(expectedResponseTable);
     }
 
     @When("^user adds invalid basic version$")
@@ -102,5 +106,6 @@ public class BasicStepDefination {
     public void user_should_see_json_response_for_invalid_version(DataTable expectedResponseTable) {
         handle.validateResponseBodyForInvalidVersion(expectedResponseTable);
     }
+
 
 }
