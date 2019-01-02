@@ -1,4 +1,4 @@
-package test_runners;
+package com.hopper.tests;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -9,13 +9,15 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources",
-        glue = "steps_definations.BasicStepDefination",
+        glue = "com.hopper.tests.stepDefinitions",
         dryRun = false,
         strict = false,
         monochrome = true
 
 )
-public class MasterRunnerForCucumber {
+
+public class TestRunner {
+
     @BeforeClass
     public static void beforeClass() {
         System.out.println("**********************************");
